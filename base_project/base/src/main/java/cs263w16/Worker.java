@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.google.appengine.api.datastore.*;
+import com.google.appengine.api.memcache.*;
 
 //The Worker servlet is mapped to the "/worker" route.
 public class Worker extends HttpServlet {
@@ -17,6 +18,9 @@ public class Worker extends HttpServlet {
      tsk.setProperty("value", value);
      tsk.setProperty("date", new Date());
      datastore.put(tsk);
+     //and cache it
+     MemcacheService mcache = MemcacheServiceFactory.getMemcacheService();
+     mcache.put(name,tsk);
      System.err.println("****************Wrote key/value to datastore: "+ name + " " +value);
 
  }
