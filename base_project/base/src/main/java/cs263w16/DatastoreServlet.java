@@ -88,7 +88,6 @@ public class DatastoreServlet extends HttpServlet {
       } else { /* keyname has been passed in */
             if (val != null) { /*keyname and value have been passed in */
 		//store it in the datastore and memcache
-                Key dsKey = KeyFactory.createKey("TaskData", key);
                 Entity tsk = new Entity("TaskData",key);
                 tsk.setProperty("value", val);
 		Date date = new Date();

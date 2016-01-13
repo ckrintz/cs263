@@ -66,21 +66,11 @@
   <groupId>org.glassfish.jersey.containers </groupId>
   <artifactId>jersey-container-servlet-core</artifactId>
  </dependency>
- <dependency>
-  <groupId>com.fasterxml.jackson.core</groupId>
-  <artifactId>jackson-databind</artifactId>
-  <version>2.6.4</version>
- </dependency>
- <dependency>
-  <groupId>com.fasterxml.jackson.core</groupId>
-  <artifactId>jackson-core</artifactId>
-  <version>2.6.4</version>
- </dependency>
- <dependency>
-  <groupId>com.fasterxml.jackson.core</groupId>
-  <artifactId>jackson-annotations</artifactId>
-  <version>2.6.4</version>
- </dependency>
+<dependency>
+  <groupId>org.glassfish.jersey.media</groupId>
+  <artifactId>jersey-media-json-jackson</artifactId>
+  <scope>runtime</scope>
+</dependency>
  <dependency>
   <groupId>javax</groupId>
   <artifactId>javaee-web-api</artifactId>
@@ -153,6 +143,7 @@
                 <configuration>
                     <enableJarClasses>false</enableJarClasses>
                     <version>${app.version}</version>
+                    <port>8080</port>
                     <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
                     <!-- address>0.0.0.0</address>
                     <port>8080</port -->
